@@ -46,7 +46,7 @@ export const projects: Project[] = [
     rank: { analyst: 1, scientist: 1, business: 4, engineer: 1 },
     image: dissImg,
     imageAlt: 'UK credit card balances outstanding, 2000–2026, with the three crisis periods shaded',
-    links: [{ label: 'View code on GitHub', url: 'https://github.com/J2ju/uk-credit-card-borrowing-analysis' }],
+    links: [{ label: 'View code on GitHub', url: 'https://github.com/JudeAdjei/uk-credit-card-borrowing-analysis' }],
     evidence: 'Dissertation final draft, analysis script and the deposited regression dataset (316 monthly rows).',
   },
   {
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     rank: { analyst: 5, scientist: 2, business: 9, engineer: 9 },
     image: aaplImg,
     imageAlt: 'Weekly Apple opening share price, 2013–2023',
-    links: [{ label: 'View code on GitHub', url: 'https://github.com/J2ju/apple-stock-forecasting-arima-garch' }],
+    links: [{ label: 'View code on GitHub', url: 'https://github.com/JudeAdjei/apple-stock-forecasting-arima-garch' }],
     evidence: 'Group thesis (KNUST, 2023), presentation slides and the R script.',
   },
   {

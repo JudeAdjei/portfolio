@@ -1,5 +1,7 @@
 # Jude Adjei · Data Portfolio
 
+**Live site:** https://judeadjei.github.io/portfolio/
+
 A React + TypeScript + Tailwind + Recharts portfolio and link hub. Every chart uses project data or published results; anything illustrative is labelled.
 
 ## Run it locally
@@ -15,10 +17,12 @@ Requires Node 18 or newer.
 
 ## Deploy (free tier)
 
+**GitHub Pages (current):** every push to `main` builds and publishes the site automatically via `.github/workflows/deploy.yml` (Settings → Pages → Source: GitHub Actions).
+
 The site uses hash-based routes (`/#/projects`), so it works on any static host with no rewrite rules.
 
 **Netlify (recommended)**
-1. Push this folder to a GitHub repository (for example `github.com/J2ju/portfolio`).
+1. Push this folder to a GitHub repository (for example `github.com/JudeAdjei/portfolio`).
 2. In Netlify: *Add new site → Import from Git → pick the repo*. `netlify.toml` already sets the build command (`npm run build`) and publish folder (`dist`).
 3. Or, without Git: run `npm run build` and drag the `dist` folder onto app.netlify.com/drop.
 

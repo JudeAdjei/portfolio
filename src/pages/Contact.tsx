@@ -31,7 +31,8 @@ export default function Contact() {
       return;
     }
     // Inside the claude.ai preview the page cannot reach any server: offer the email route.
-    if ((window as any).claude?.use) { setState('offline'); return; }
+    // No form service on this host (claude.ai preview or GitHub Pages without an endpoint): offer the email route.
+    if ((window as any).claude?.use || (!formEndpoint && location.hostname.endsWith('github.io'))) { setState('offline'); return; }
     setState('sending');
     try {
       let res: Response;
@@ -76,7 +77,7 @@ export default function Contact() {
             </div>
           </div>
           <ExtLink href={links.linkedin} className="card flex items-center gap-3 p-5 hover:border-accent/60"><IconLinkedIn className="text-accent" /><span><span className="block font-semibold">LinkedIn</span><span className="text-sm text-muted">linkedin.com/in/judeadjei</span></span></ExtLink>
-          <ExtLink href={links.github} className="card flex items-center gap-3 p-5 hover:border-accent/60"><IconGitHub className="text-accent" /><span><span className="block font-semibold">GitHub</span><span className="text-sm text-muted">github.com/J2ju</span></span></ExtLink>
+          <ExtLink href={links.github} className="card flex items-center gap-3 p-5 hover:border-accent/60"><IconGitHub className="text-accent" /><span><span className="block font-semibold">GitHub</span><span className="text-sm text-muted">github.com/JudeAdjei</span></span></ExtLink>
         </div>
 
         <form noValidate onSubmit={submit} className="card flex flex-col gap-4 p-5 sm:p-6" aria-describedby="form-status">
@@ -94,7 +95,7 @@ export default function Contact() {
             {state === 'error' && <Note tone="warn">The message couldn’t be sent just now. Please email <span className="select-all font-mono text-fg">{profile.email}</span> directly.</Note>}
             {state === 'offline' && (
               <Note tone="warn">
-                <p>To send from this preview, copy your message and email it to <span className="select-all font-mono text-fg">{profile.email}</span>.</p>
+                <p>Thanks! Please copy your message and email it to <span className="select-all font-mono text-fg">{profile.email}</span>.</p>
                 <div className="mt-2"><CopyButton text={draft} label="Copy message" /></div>
               </Note>
             )}

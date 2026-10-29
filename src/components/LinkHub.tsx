@@ -6,7 +6,7 @@ type Item = { title: string; desc: string; icon: JSX.Element; to?: string; href?
 
 export const hubItems: Item[] = [
   { title: 'LinkedIn', desc: 'Profile, experience and recent posts', icon: <IconLinkedIn />, href: links.linkedin },
-  { title: 'GitHub', desc: 'github.com/J2ju · project code', icon: <IconGitHub />, href: links.github },
+  { title: 'GitHub', desc: 'github.com/JudeAdjei · project code', icon: <IconGitHub />, href: links.github },
   { title: 'CV', desc: 'Read the CV online or open the PDF', icon: <IconFile />, to: '/cv' },
   { title: 'Featured projects', desc: 'Six case studies with interactive charts', icon: <IconChart />, to: '/projects' },
   { title: 'Credit card dissertation', desc: 'UK borrowing vs. the macroeconomy, 2000–2026', icon: <IconSpark />, to: '/projects/uk-credit-card-borrowing' },

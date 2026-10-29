@@ -22,7 +22,7 @@ export const profile = {
 export const links = {
   linkedin: 'https://www.linkedin.com/in/judeadjei/',
   linkedinActivity: 'https://www.linkedin.com/in/judeadjei/recent-activity/all/',
-  github: 'https://github.com/J2ju',
+  github: 'https://github.com/JudeAdjei',
   safeflow: 'https://lnkd.in/ev9ZTBPV',
   cvPdf: 'cv/Jude-Adjei-CV.pdf',
   blog: null as string | null, // add a URL when technical writing is published
