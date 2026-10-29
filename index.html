@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en-GB" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>View my portfolio</title>
+    <meta name="description" content="Jude Adjei — data analyst and MSc Financial Technology & Business Analytics student. Time-series econometrics, forecasting, Monte Carlo risk modelling and business reporting, with interactive case studies." />
+    <meta name="author" content="Jude Adjei" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="View my portfolio" />
+    <meta property="og:description" content="Interactive case studies in financial analytics, forecasting and business reporting." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#F5F7FB" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1220'/%3E%3Cpath d='M12 44 L24 32 L34 38 L52 18' stroke='%2322D3EE' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='52' cy='18' r='5' fill='%23A78BFA'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Netlify Forms: registers the contact form at deploy time (the React form posts to it). -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" /><input type="email" name="email" /><input type="text" name="subject" />
+      <textarea name="message"></textarea><input name="bot-field" />
+    </form>
+    <noscript>This portfolio needs JavaScript to show its interactive charts.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

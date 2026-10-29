@@ -1,0 +1,109 @@
+/* Layout concept: a quiet analyst's workbench — dark navy desk, cyan "signal" accent,
+   evidence chips beside every claim, charts set like exhibits in a report. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tokens are RGB triplets so Tailwind can apply alpha. Dark-first design. */
+:root {
+  --bg: 11 18 32;          /* #0B1220 navy desk */
+  --surface: 17 26 46;     /* #111A2E */
+  --raised: 24 35 60;      /* #18233C */
+  --line: 37 51 82;        /* #253352 */
+  --fg: 230 237 247;       /* #E6EDF7 */
+  --muted: 160 175 201;    /* #A0AFC9 */
+  --faint: 108 124 154;    /* #6C7C9A */
+  --accent: 34 211 238;    /* #22D3EE cyan signal */
+  --teal: 45 212 191;      /* #2DD4BF */
+  --violet: 167 139 250;   /* #A78BFA */
+  --amber: 251 191 36;     /* #FBBF24 */
+  --good: 52 211 153;
+  --warn: 251 191 36;
+  --bad: 248 113 113;
+  /* chart categorical order (validated: dark surface) */
+  --s1: #0891B2; --s2: #8B5CF6; --s3: #D97706; --s4: #DB2777;
+  --grid: rgba(160, 175, 201, 0.14);
+  --band-gfc: rgba(96, 165, 250, 0.16);
+  --band-covid: rgba(244, 114, 182, 0.16);
+  --band-col: rgba(251, 191, 36, 0.14);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: 245 247 251; --surface: 255 255 255; --raised: 238 242 249; --line: 214 222 236;
+    --fg: 12 21 44; --muted: 71 85 115; --faint: 112 125 152;
+    --accent: 8 145 178; --teal: 13 148 136; --violet: 124 58 237; --amber: 180 83 9;
+    --good: 5 150 105; --warn: 180 83 9; --bad: 220 38 38;
+    --s1: #0891B2; --s2: #7C3AED; --s3: #D97706; --s4: #DB2777;
+    --grid: rgba(71, 85, 115, 0.14);
+    --band-gfc: rgba(37, 99, 235, 0.10); --band-covid: rgba(219, 39, 119, 0.10); --band-col: rgba(217, 119, 6, 0.10);
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: 245 247 251; --surface: 255 255 255; --raised: 238 242 249; --line: 214 222 236;
+  --fg: 12 21 44; --muted: 71 85 115; --faint: 112 125 152;
+  --accent: 8 145 178; --teal: 13 148 136; --violet: 124 58 237; --amber: 180 83 9;
+  --good: 5 150 105; --warn: 180 83 9; --bad: 220 38 38;
+  --s1: #0891B2; --s2: #7C3AED; --s3: #D97706; --s4: #DB2777;
+  --grid: rgba(71, 85, 115, 0.14);
+  --band-gfc: rgba(37, 99, 235, 0.10); --band-covid: rgba(219, 39, 119, 0.10); --band-col: rgba(217, 119, 6, 0.10);
+  color-scheme: light;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3 { font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif; text-wrap: balance; letter-spacing: -0.015em; line-height: 1.12; }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.num { font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(var(--accent)); }
+.prose-body { max-width: 68ch; }
+.prose-body p + p { margin-top: 0.85rem; }
+
+/* Faint graph-paper ground used behind the hero only */
+.gridpaper {
+  background-image:
+    linear-gradient(rgb(var(--line) / 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--line) / 0.35) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse at 30% 20%, #000 20%, transparent 75%);
+}
+
+:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 2px; border-radius: 6px; }
+
+.btn { display: inline-flex; align-items: center; gap: .5rem; border-radius: 10px; padding: .6rem 1rem; font-weight: 600; font-size: .9rem; transition: transform .15s ease, background-color .15s ease, border-color .15s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: rgb(var(--accent)); color: rgb(var(--bg)); }
+.btn-primary:hover { background: rgb(var(--accent) / .88); }
+.btn-ghost { border: 1px solid rgb(var(--line)); color: rgb(var(--fg)); background: rgb(var(--surface) / .6); }
+.btn-ghost:hover { border-color: rgb(var(--accent) / .7); }
+.chip { display: inline-flex; align-items: center; gap: .35rem; border: 1px solid rgb(var(--line)); border-radius: 999px; padding: .15rem .6rem; font-size: .75rem; color: rgb(var(--muted)); background: rgb(var(--surface)); white-space: nowrap; }
+.seg { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid rgb(var(--line)); border-radius: 12px; background: rgb(var(--bg) / .5); }
+.seg button { padding: .35rem .7rem; border-radius: 8px; font-size: .8rem; color: rgb(var(--muted)); }
+.seg button[aria-pressed="true"], .seg button[aria-selected="true"] { background: rgb(var(--raised)); color: rgb(var(--fg)); box-shadow: inset 0 0 0 1px rgb(var(--accent) / .45); }
+.field { width: 100%; border-radius: 10px; border: 1px solid rgb(var(--line)); background: rgb(var(--bg)); color: rgb(var(--fg)); padding: .6rem .75rem; font-size: .95rem; }
+.field[aria-invalid="true"] { border-color: rgb(var(--bad)); }
+.card { background: rgb(var(--surface)); border: 1px solid rgb(var(--line)); border-radius: 16px; }
+.table-wrap { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.data-table th { text-align: left; font-weight: 600; color: rgb(var(--muted)); border-bottom: 1px solid rgb(var(--line)); padding: .45rem .6rem; white-space: nowrap; }
+.data-table td { border-bottom: 1px solid rgb(var(--line) / .6); padding: .45rem .6rem; font-variant-numeric: tabular-nums; }
+
+/* Recharts text follows theme tokens */
+.recharts-cartesian-axis-tick-value { fill: rgb(var(--muted)); font-size: 11px; font-family: "IBM Plex Mono", monospace; }
+.recharts-label { fill: rgb(var(--muted)); font-size: 11px; }
+.recharts-legend-item-text { color: rgb(var(--fg)) !important; font-size: 12px; }
+
+@keyframes rise { from { transform: translateY(8px); } to { transform: none; } }
+.rise { animation: rise .6s ease both; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
