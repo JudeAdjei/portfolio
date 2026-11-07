@@ -15,7 +15,7 @@ export default function CvPage() {
           <ExtLink href={links.linkedin} className="btn btn-ghost"><IconLinkedIn className="h-4 w-4" /> LinkedIn profile</ExtLink>
         </div>
         <figure className="card mt-8 overflow-hidden mx-auto max-w-3xl">
-          <img src={cvImg} alt="Jude Adjei CV: Data Scientist. England, United Kingdom; adjeijude24@gmail.com; LinkedIn; portfolio link. Area of expertise, MSc Financial Technology and Business Analytics at the University of Chester (Oct 2025 – Oct 2026), Mail Sorter at Royal Mail (Oct 2025 – present), Sales Analyst at Pep’s Restaurant (Nov 2024 – Oct 2025), Google Data Analytics Professional Certificate." className="w-full h-auto bg-white" />
+          <img src={cvImg} alt="Jude Adjei CV: Data Scientist. England, United Kingdom; adjeijude24@gmail.com; LinkedIn; portfolio link. Area of expertise; Education: MSc Financial Technology and Business Analytics, University of Chester (Oct 2025 – Oct 2026) and BSc Statistics, KNUST, Kumasi, Ghana (Sep 2019 – Sep 2023); Project: Macroeconomic Drivers of UK Credit Card Borrowing (Oct 2026); Sales Analyst at Pep’s Restaurant (Nov 2024 – Oct 2025); Google Data Analytics Professional Certificate." className="w-full h-auto bg-white" />
         </figure>
       </Section>
       <Section eyebrow="Certificates" title="Certificates & professional development" className="!pt-0">

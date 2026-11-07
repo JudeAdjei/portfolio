@@ -24,6 +24,11 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - name: Render the CV preview image from the CV PDF
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils webp
+          pdftoppm -png -r 200 -singlefile public/cv/Jude-Adjei-CV.pdf /tmp/cv-page
+          cwebp -quiet -q 82 -resize 1360 0 /tmp/cv-page.png -o src/assets/cv-page.webp
       - run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
