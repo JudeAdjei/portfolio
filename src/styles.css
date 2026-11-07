@@ -30,7 +30,7 @@
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --bg: 245 247 251; --surface: 255 255 255; --raised: 238 242 249; --line: 214 222 236;
+    --bg: 252 253 255; --surface: 255 255 255; --raised: 241 245 251; --line: 219 227 239;
     --fg: 12 21 44; --muted: 71 85 115; --faint: 112 125 152;
     --accent: 8 145 178; --teal: 13 148 136; --violet: 124 58 237; --amber: 180 83 9;
     --good: 5 150 105; --warn: 180 83 9; --bad: 220 38 38;
@@ -41,7 +41,7 @@
   }
 }
 :root[data-theme="light"] {
-  --bg: 245 247 251; --surface: 255 255 255; --raised: 238 242 249; --line: 214 222 236;
+  --bg: 252 253 255; --surface: 255 255 255; --raised: 241 245 251; --line: 219 227 239;
   --fg: 12 21 44; --muted: 71 85 115; --faint: 112 125 152;
   --accent: 8 145 178; --teal: 13 148 136; --violet: 124 58 237; --amber: 180 83 9;
   --good: 5 150 105; --warn: 180 83 9; --bad: 220 38 38;
@@ -52,8 +52,27 @@
 }
 
 html { scroll-behavior: smooth; }
+
+/* Page ground: white analyst's graph paper — fine 24px grid, a stronger 120px major grid,
+   and a soft cool wash at the top. Fixed behind all content. */
+:root { --paper-minor: rgb(var(--line) / 0.22); --paper-major: rgb(var(--line) / 0.38); --paper-wash: rgb(var(--accent) / 0.10); }
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image:
+    radial-gradient(1100px 520px at 85% -10%, var(--paper-wash), transparent 70%),
+    radial-gradient(900px 480px at -10% 0%, rgb(var(--violet) / 0.05), transparent 70%),
+    linear-gradient(var(--paper-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-major) 1px, transparent 1px),
+    linear-gradient(var(--paper-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-minor) 1px, transparent 1px);
+  background-size: auto, auto, 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  background-position: 0 0, 0 0, -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
+:root[data-theme="light"] .card { box-shadow: 0 1px 2px rgb(12 21 44 / 0.04), 0 4px 16px -6px rgb(12 21 44 / 0.08); }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .card { box-shadow: 0 1px 2px rgb(12 21 44 / 0.04), 0 4px 16px -6px rgb(12 21 44 / 0.08); } }
 body {
   background: rgb(var(--bg));
+  position: relative; isolation: isolate;
   color: rgb(var(--fg));
   font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   font-size: 16px;

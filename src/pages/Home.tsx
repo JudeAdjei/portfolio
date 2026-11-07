@@ -60,7 +60,6 @@ export default function Home() {
   return (
     <>
       <section className="relative gutter overflow-hidden">
-        <div className="gridpaper pointer-events-none absolute inset-0" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-page gap-10 py-14 sm:py-20 lg:grid-cols-[1.15fr_1fr] lg:items-center">
           <div className="rise min-w-0">
             <div className="flex items-center gap-4">
